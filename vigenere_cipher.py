@@ -23,8 +23,8 @@ def vige_encrypt(text, key):
         if c in not_be_encrypted:#space, enter ve sık kullanılan noktalama karakterlerini anahtarımız kolayca ifşa olmasın diye şifrelemiyeceğiz
             encrpyted_text += c
         else:
-            char_num = ord(c) + 33 + ord(key[k])
             #print(f"{ord(c)} {ord(key[k])}")
+            char_num = ord(c) + 33 + ord(key[k])
             if char_num >= 127:
                 encrpyted_text += chr(char_num + 34)
             else:
