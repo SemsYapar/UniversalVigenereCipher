@@ -1,7 +1,3 @@
-
-from itertools import cycle, chain
-from string import punctuation
-
 #Sems tarafından kodlandı
 """
 Bazı sayıların meraklılar için açıklaması:
