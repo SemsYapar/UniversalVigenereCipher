@@ -1,4 +1,3 @@
 # VigenereCipher
-use unicode on vigenere cipher method
-tüm evrensel karakterlerle kullanımı desteklenen vigenere cipher
-can also be used in caesar encryption
+Turkish: Unicode karakter kodlamasındaki tüm karakterleri anahtar veya metin olarak değerlendirmeye alabileceğiniz kapsamlı bir vigenere cipher
+English: A comprehensive vigenere cipher where you can treat all characters in the Unicode character encoding as keys or text
