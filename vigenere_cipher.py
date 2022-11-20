@@ -12,7 +12,7 @@ banner = """
 Vigenere şifreleme makinasına hoş geldin, bu eski bir simetrik şifreleme yöntemidir. \"Çoklu Sezar şifreleme\" olarak düşünebilirsin, metin tek bir shift leme (kaydırma) değeri ile değilde belirlenen anahtarın içindeki harflerin tekabül ettiği sayıların sırayla kaydırma değeri olarak kullanılması ile şifreleriz, bu sayede şifrenin çözümünde frekans analizi (harflerin ne kadar kaydırıldığını bulmak) zorlaşır çünkü artık şifre kırıcının anahtarın uzunluğu kadar sezar şifresi kırması gerekir. Algoritmayı araştırmaya başlamadan önce bir kaç deneme yapmaya ne dersin.
 """
 
-not_be_encrypted = [' ','\n','!', '"', ',', '-', '.']
+not_be_encrypted = [' ', '\n', '!', '"', ',', '-', '.']
 def vige_encrypt(text, key):
     if len(text) < len(key):
         print("La oğlum hiç metin anahtardan daha küçük olur mu aklını mı oynattın")
