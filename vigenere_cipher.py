@@ -71,7 +71,7 @@ if __name__ == "__main__":
         encrypted_text = input("Neyi sakladın? (şifreli metin)-> ")
         if encrypted_text:
             key = input("Şifreni talep ediyorum (anahtar)-> ")
-            decrypted_text = vige_decrpyt(encrypted_text, key)
+            decrypted_text = vige_decrypt(encrypted_text, key)
             print("İşte metnin -> ", decrypted_text)
         else:
             print("Oğlum düzgünce şifreli metni gir dellendirme")
