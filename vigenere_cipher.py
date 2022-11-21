@@ -49,9 +49,9 @@ def vige_decrpyt(text, key):
             if char_num < 0:
                 char_num += 33#Bu durum normalde olmaz çünkü encrpyt fonksiyonu char_num un yüzde yüz 32 den büyük olucağını garantiler ama olurda manuel olarak decrpyt fonksiyonu çağrılırsa ve char_num 32 den küçük olursa o zaman sadece anahtarı çıkarmamız yeticektir.
             if char_num-34 >= 127:
-                decrpyted_text += chr(char_num - 33 - 34 - ord(key[k]))
+                decrpyted_text += chr((char_num - 33 - 34 - ord(key[k]))%1114112)
             else:
-                decrpyted_text += chr(char_num - 33 - ord(key[k]))
+                decrpyted_text += chr((char_num - 33 - ord(key[k]))%1114112)#yanlış şifre denemelerinde programın çökmemesi için mod alıyoruz
             k += 1
             if k == len(key):
                 k = 0
