@@ -17,45 +17,45 @@ def vige_encrypt(text, key):
     if len(text) < len(key):
         print("La oğlum hiç metin anahtardan daha küçük olur mu aklını mı oynattın")
         exit()
-    encrpyted_text = ""
+    encrypted_text = ""
     k = 0
     for c in text:
         if c in not_be_encrypted:#space, enter ve sık kullanılan noktalama karakterlerini anahtarımız kolayca ifşa olmasın diye şifrelemiyeceğiz
-            encrpyted_text += c
+            encrypted_text += c
         else:
             #print(f"{ord(c)} {ord(key[k])}")
             char_num = ord(c) + 33 + ord(key[k])
             if char_num >= 127:
-                encrpyted_text += chr(char_num + 34)
+                encrypted_text += chr(char_num + 34)
             else:
-                encrpyted_text += chr(char_num)
+                encrypted_text += chr(char_num)
             k += 1
             if k == len(key):
                 k = 0
-    return encrpyted_text
+    return encrypted_text
 
-def vige_decrpyt(text, key):
+def vige_decrypt(text, key):
     if len(text) < len(key):
         print("La oğlum hiç metin anahtardan daha küçük olur mu aklını mı oynattın")
         exit()
-    decrpyted_text = ""
+    decrypted_text = ""
     k = 0
     for c in text:
         if c in not_be_encrypted:#space, enter ve sık kullanılan noktalama karakterlerini anahtarımız kolayca ifşa olmasın diye şifrelemiyeceğiz
-            decrpyted_text += c
+            decrypted_text += c
         else:
             #print(f"{ord(c)} {ord(key[k])}")
             char_num = ord(c)
             if char_num < 0:
                 char_num += 33#Bu durum normalde olmaz çünkü encrpyt fonksiyonu char_num un yüzde yüz 32 den büyük olucağını garantiler ama olurda manuel olarak decrpyt fonksiyonu çağrılırsa ve char_num 32 den küçük olursa o zaman sadece anahtarı çıkarmamız yeticektir.
             if char_num-34 >= 127:
-                decrpyted_text += chr((char_num - 33 - 34 - ord(key[k]))%1114112)
+                decrypted_text += chr((char_num - 33 - 34 - ord(key[k]))%1114112)
             else:
-                decrpyted_text += chr((char_num - 33 - ord(key[k]))%1114112)#yanlış şifre denemelerinde programın çökmemesi için mod alıyoruz
+                decrypted_text += chr((char_num - 33 - ord(key[k]))%1114112)#yanlış şifre denemelerinde programın çökmemesi için mod alıyoruz
             k += 1
             if k == len(key):
                 k = 0
-    return decrpyted_text
+    return decrypted_text
 
 if __name__ == "__main__":
     mode = input(f"{banner}\nŞifreleyek mi? Çözek mi hacı? (ş/ç)-> ")
@@ -63,15 +63,15 @@ if __name__ == "__main__":
         text = input("Ne özelin var? (metin)-> ")
         if text:
             key = input("Şifreni talep ediyorum (anahtar)-> ")
-            encrpyted_text = vige_encrypt(text, key)
-            print("Metnini şifreledik -> ", encrpyted_text)
+            encrypted_text = vige_encrypt(text, key)
+            print("Metnini şifreledik -> ", encrypted_text)
         else:
             print("Oğlum düzgünce metni gir dellendirme")
     elif mode == "ç":
         encrypted_text = input("Neyi sakladın? (şifreli metin)-> ")
         if encrypted_text:
             key = input("Şifreni talep ediyorum (anahtar)-> ")
-            decrpyted_text = vige_decrpyt(encrypted_text, key)
-            print("İşte metnin -> ", decrpyted_text)
+            decrypted_text = vige_decrpyt(encrypted_text, key)
+            print("İşte metnin -> ", decrypted_text)
         else:
             print("Oğlum düzgünce şifreli metni gir dellendirme")
